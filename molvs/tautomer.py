@@ -9,9 +9,9 @@ This module contains tools for enumerating tautomers and determining a canonical
 :license: MIT, see LICENSE file for more details.
 """
 
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
+
+
+
 import copy
 import logging
 
@@ -311,13 +311,13 @@ class TautomerEnumerator(object):
         else:
             log.warn('Tautomer enumeration stopped at maximum %s', self.max_tautomers)
         # Clean up stereochemistry
-        for tautomer in tautomers.values():
+        for tautomer in list(tautomers.values()):
             Chem.AssignStereochemistry(tautomer, force=True, cleanIt=True)
             for bond in tautomer.GetBonds():
                 if bond.GetBondType() == BondType.DOUBLE and bond.GetStereo() > BondStereo.STEREOANY:
                     begin = bond.GetBeginAtomIdx()
                     end = bond.GetEndAtomIdx()
-                    for othertautomer in tautomers.values():
+                    for othertautomer in list(tautomers.values()):
                         if not othertautomer.GetBondBetweenAtoms(begin, end).GetBondType() == BondType.DOUBLE:
                             neighbours = tautomer.GetAtomWithIdx(begin).GetBonds() + tautomer.GetAtomWithIdx(end).GetBonds()
                             for otherbond in neighbours:

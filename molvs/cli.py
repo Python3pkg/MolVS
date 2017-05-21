@@ -9,9 +9,9 @@ This module contains a command line interface for standardization.
 :license: MIT, see LICENSE file for more details.
 """
 
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
+
+
+
 import argparse
 import logging
 from rdkit import Chem

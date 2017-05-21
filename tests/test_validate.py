@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """Tests for charge.py"""
 
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
+
+
+
 
 from molvs.validate import validate_smiles
 
@@ -16,7 +16,7 @@ def test_none():
 
 def test_no_atoms():
     """An empty SMILES produces a mol with not atoms."""
-    assert validate_smiles('') == [u'ERROR: [NoAtomValidation] No atoms are present']
+    assert validate_smiles('') == ['ERROR: [NoAtomValidation] No atoms are present']
 
 
 def test_fragment():

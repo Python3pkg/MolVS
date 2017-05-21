@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """Tests for tautomer.py"""
 
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
+
+
+
 import logging
 
 from molvs.standardize import enumerate_tautomers_smiles, canonicalize_tautomer_smiles

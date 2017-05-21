@@ -7,6 +7,7 @@
 
 import sys
 import os
+import collections
 
 # on_rtd is whether we are on readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
@@ -44,8 +45,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'MolVS'
-copyright = u'2016, Matt Swain'
+project = 'MolVS'
+copyright = '2016, Matt Swain'
 
 # The version info for the project you're documenting, acts as replacement for |version| and |release|, also used in
 # various other places throughout the built documents.
@@ -183,7 +184,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'MolVS.tex', u'MolVS Documentation', u'Matt Swain', 'manual'),
+  ('index', 'MolVS.tex', 'MolVS Documentation', 'Matt Swain', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of the title page.
@@ -209,7 +210,7 @@ latex_domain_indices = False
 
 # One entry per manual page. List of tuples (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'molvs', u'MolVS Documentation', [u'Matt Swain'], 1)
+    ('index', 'molvs', 'MolVS Documentation', ['Matt Swain'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -221,7 +222,7 @@ man_pages = [
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author, dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'MolVS', u'MolVS Documentation', u'Matt Swain', 'MolVS',
+    ('index', 'MolVS', 'MolVS Documentation', 'Matt Swain', 'MolVS',
      'One line description of project.', 'Miscellaneous'),
 ]
 
@@ -271,7 +272,7 @@ class Mock(object):
         pass
 
     def __call__(self, *args, **kwargs):
-        if args and callable(args[0]):
+        if args and isinstance(args[0], collections.Callable):
             return args[0]
         return Mock()
 

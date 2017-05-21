@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """Tests for standardize.py"""
 
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
+
+
+
 import logging
 
 from molvs.standardize import standardize_smiles
